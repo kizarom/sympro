@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+<h1>Page produit</h1>
+<p>Categorie : {{ categorie }}</p>
+<p>Name : {{ product.name }}</p>
+<p>Price : {{ product.price }}</p>
+<p><a href="{{ path('products') }}">liste des produits</a></p>
+{% endblock %}

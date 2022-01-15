@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>My Product</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+{#    {{ encore_entry_link_tags('app') }}#}
+    <script>
+    </script>
+    <style>
+        body {
+            background-color: lightgray;
+            margin-top: 100px;
+        }
+
+        main {
+            margin: 30px;
+        }
+    </style>
+    {% block style %}{% endblock %}
+</head>
+    <body>
+    <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand">Navbar</a>
+                        {% if app.user %}
+                                {# Si l'utilisateur est authentifié #}
+                                        <a class="btn btn-outline-info" >Page membre</a>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                        {# Si l'utilisateur est authentifié et qu'il est admin #}
+                                        <a class="btn btn-outline-warning" >Page admin</a>
+                                {% endif %}
+                                <div>
+                                        Bonjour {{ app.user.username }} <a class="btn btn-sm btn-danger" href="{{ path('app_logout') }}">Déconnexion</a>
+                                </div>
+                        {% else %}
+                                <div>
+                                        <a class="btn btn-sm btn-primary" >S'inscrire</a>
+                                        <a class="btn btn-sm btn-success" href="{{ path('app_login') }}">Se connecter</a>
+                                </div>
+                        {% endif %}
+                </nav>
+    
+        {% block body %}{% endblock %}
+
+        <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="../../assets/js/vendor/holder.min.js"></script>
+{% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </body>
+</html>
